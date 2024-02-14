@@ -73,8 +73,7 @@
 			console.error(e.relayErrors);
 		}
 
-		event.onRelays = relayUrls;
-
+		event.onRelays = relayUrls.map(r => new NDKRelay(r));
 		goto(`/a/${event.encode()}`);
 	}
 
