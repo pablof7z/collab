@@ -1,32 +1,15 @@
-# Turborepo Svelte starter
+# Collab
 
-This is an official starter Turborepo.
+An experimental collaborative document-editing over nostr.
 
-## Using this example
+## How it works
 
-Run the following command:
+A user creates a new document, `kind:31111` and p-tags the editors the user wants to invite to collaborate.
 
-```sh
-npx create-turbo@latest -e with-svelte
-```
+The user shares the naddr of the event with the other collaborators.
 
-## What's inside?
+When authors or collaborators are writing, ephemeral events are published constantly so that each one can see in kinda real-time the changes the others are making.
 
-This Turborepo includes the following packages/apps:
+When collaborators want to propose a change they hit the "Save" button, which generates an event of the same kind as the original (31111 by default) *signed with their own key*.
 
-### Apps and Packages
-
-- `docs`: a [svelte-kit](https://kit.svelte.dev/) app
-- `web`: another [svelte-kit](https://kit.svelte.dev/) app
-- `ui`: a stub Svelte component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-plugin-svelte` and `eslint-config-prettier`)
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+The owner of the document can then choose to make the newest version the canonical version by resigning the event with the new content.
