@@ -54,7 +54,7 @@
             }
 
             const filter: NDKFilter = {
-                kinds: [start.kind!, 24133],
+                kinds: [start.kind!, 24135],
                 "#d": [start.tagValue("d")!],
                 limit: 1,
                 "authors": [
@@ -106,7 +106,7 @@
     async function keyup(e: KeyboardEvent) {
         // if it's a letter or number, save the event
         if (e.key.match(/[a-zA-Z0-9]/)) {
-            save(24133);
+            save(24135);
         }
     }
 
