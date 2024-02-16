@@ -120,6 +120,10 @@
             content: content
         } as NostrEvent);
 
+        // remove summary
+        v.removeTag("summary");
+        v.tags.push(["summary", content.slice(0, 100)]);
+
         // remove title
         v.removeTag("title");
         v.tags.push(["title", title]);
